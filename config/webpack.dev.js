@@ -61,6 +61,7 @@ const config = {
 		//},
 		watchFiles: [
 			`${paths.src}/**/*.html`,
+			`${paths.src}/*.html`,
 			`${paths.src}/**/*.pug`,
 			`${paths.src}/**/*.json`,
 			`${paths.src}/**/*.htm`,

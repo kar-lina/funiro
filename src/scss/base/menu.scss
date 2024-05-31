@@ -1,4 +1,5 @@
 .menu {
+	flex: 0 1 toRem(420);
 	// .menu__icon
 	&__icon {
 	}
@@ -44,6 +45,19 @@
 		@media (max-width: $mobile) {
 		}
 	}
+
+	&__arrow {
+  }
+
+  &__sub-list {
+    display: none;
+  }
+
+  &__sub-item {
+  }
+
+  &__sub-link {
+  }
 }
 
 //Burger Icon
