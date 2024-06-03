@@ -24,47 +24,112 @@
     display: flex;
     flex: 0 0 calc(494 / 1240 * 100%);
     align-items: center;
+    @media (max-width:$tablet){
+        flex: 1 1 auto;
+    }
   }
 
   &__logo {
     color: rgb(0, 0, 0);
     font-size: 24px;
     font-weight: 700;
-    line-height: math.div(29 , 24);
+    line-height: math.div(29, 24);
   }
 
   &__menu {
   }
 
   &__search {
+    @include adaptiveValue('padding-right', 32, 15, 0);
+    @media (min-width: $tablet) {
+      flex: 1 1 auto;
+    }
   }
 
   &__actions {
   }
 }
 
-
 .search-form {
+  max-width: toRem(473);
+
+  &._active {
+    .search-form__item {
+      top: 100%;
+      opacity: 1;
+      visibility: visible;
+    }
+     .search-form__icon {
+      color: $orangeColor;
+     }
+  }
   &__icon {
+    color:#262f56;
+    position: relative;
+    z-index: 5;
+    font-size: rem(22);
+    @media (min-width:$tablet){
+      display: none;
+    }
+
   }
 
   &__item {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    @media (max-width: $tablet) {
+      box-shadow: 0 0 5px rgba(212, 209, 205, 0.3);
+      position: absolute;
+      width: 100%;
+      top: -100%;
+      left: 0;
+      z-index: 5;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease 0s;
+    }
   }
 
   &__btn {
+    flex: 0 0 toRem(45);
+    height: toRem(45);
+    color: #262f56;
+    font-size: toRem(15);
   }
 
   &__input {
+    padding: toRem(12) toRem(16);
+    color: $darkGrayColor;
+    font-size: toRem(14);
+    width: 100%;
   }
 }
 .actions-header {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: auto;
+  grid-auto-flow: column;
+  align-items: center;
+  @include adaptiveValue('gap', 32, 15, 0);
   &__item {
     &_favorites {
+      color: #262f56;
+      font-size: rem(24);
+      transition: color 0.3s ease 0s;
+      @media (any-hover: hover) {
+        &:hover {
+          color: $orangeColor;
+        }
+      }
     }
 
     &_user {
-      width: toRem(40);
-      height: toRem(40);
+      overflow: hidden;
+      border-radius: 50%;
+      @include adaptiveValue('width', 40, 30, 0);
+      @include adaptiveValue('height', 40, 30, 0);
       img {
         width: 100%;
         height: 100%;
@@ -75,6 +140,30 @@
 }
 .cart-header {
   &__icon {
+    position: relative;
+    display: block;
+    color: #262f56;
+    font-size: rem(24);
+    transition: color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: $orangeColor;
+      }
+    }
+    span {
+      position: absolute;
+      height: rem(20);
+      width: rem(20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $orangeColor;
+      top: rem(-10);
+      right: rem(-10);
+      color: white;
+      border-radius: 50%;
+      font-size: rem(10);
+    }
   }
 
   &__body {
