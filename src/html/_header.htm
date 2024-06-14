@@ -6,29 +6,33 @@
           <a href="#" class="header__logo">Funiro.</a>
           <div class="header__menu menu">
             <nav class="menu__body">
-              <ul class="menu__list">
-                <li class="menu__item">
-                  <a href="#" class="menu__link">Products</a>
-                  <button data-spoller class="menu__arrow _icon-arrow-down"></button>
+              <div data-spollers="768,max" class="menu__list">
+                <details class="menu__item">
+                  <summary>
+                    <a href="#" class="menu__link">Products</a>
+                    <button data-spoller class="menu__arrow _icon-arrow-down"></button>
+                  </summary>
                   <ul class="menu__sub-list">
                     <li class="menu__sub-item"><a href="#" class="menu__sub-link">Product #1</a></li>
                     <li class="menu__sub-item"><a href="#" class="menu__sub-link">Product #2</a></li>
                     <li class="menu__sub-item"><a href="#" class="menu__sub-link">Product #3</a></li>
                   </ul>
-                </li>
-                <li class="menu__item">
-                  <a href="#" class="menu__link">Rooms</a>
-                  <button type="button" data-spoller class="menu__arrow _icon-arrow-down"></button>
+                </details>
+                <details class="menu__item">
+                  <summary>
+                    <a href="#" class="menu__link">Rooms</a>
+                    <button type="button" data-spoller class="menu__arrow _icon-arrow-down"></button>
+                  </summary>
                   <ul class="menu__sub-list">
                     <li class="menu__sub-item"><a href="#" class="menu__sub-link">Rooms #1</a></li>
                     <li class="menu__sub-item"><a href="#" class="menu__sub-link">Rooms #2</a></li>
                     <li class="menu__sub-item"><a href="#" class="menu__sub-link">Rooms #3</a></li>
                   </ul>
-                </li>
+                </details>
                 <li class="menu__item">
                   <a href="#" class="menu__link">Inspirations </a>
                 </li>
-              </ul>
+              </div>
             </nav>
           </div>
         </div>
@@ -44,9 +48,7 @@
         <div class="header__actions actions-header">
           <a href="" class="actions-header__item actions-header__item_favorites _icon-favorite"></a>
           <div class="actions-header__item cart-header">
-            <a href="" class="cart-header__icon _icon-cart">
-
-						</a>
+            <a href="" class="cart-header__icon _icon-cart"> </a>
             <div class="cart-header__body">
               <ul class="cart-header__list cart-list"></ul>
             </div>

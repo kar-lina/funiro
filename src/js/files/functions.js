@@ -164,6 +164,8 @@ export let bodyLock = (delay = 500) => {
 // Модуль роботи зі спойлерами =======================================================================================================================================================================================================================
 export function spollers() {
 	const spollersArray = document.querySelectorAll('[data-spollers]');
+	console.log('spollersArray', spollersArray);
+	
 	if (spollersArray.length > 0) {
 		// Подія кліку
 		document.addEventListener("click", setSpollerAction);

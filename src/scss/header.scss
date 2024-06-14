@@ -18,6 +18,15 @@
     align-items: center;
     padding: toRem(5) 0;
     min-height: toRem(125);
+    position: relative;
+
+    @media (max-width:$tablet){
+      min-height: toRem(80);
+    }
+    @media (max-width:$mobile){
+      min-height: toRem(50);
+    }
+
   }
 
   &__main {
@@ -34,6 +43,7 @@
     font-size: 24px;
     font-weight: 700;
     line-height: math.div(29, 24);
+    z-index: 5;
   }
 
   &__menu {
