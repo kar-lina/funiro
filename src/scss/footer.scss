@@ -9,12 +9,24 @@
     @include adaptiveValue('padding-top', 80, 30);
     @include adaptiveValue('padding-bottom', 60, 30);
     @include adaptiveValue('column-gap', 80, 0);
+
+    @media (max-width: $pc) {
+      grid-template-rows: auto auto;
+      grid-template-columns: 1fr 290px;
+    }
+    @media (max-width: $tablet) {
+      display: block;
+    }
   }
 
   &__main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    @media (max-width: $pc) {
+      grid-column: span 2;
+      @include adaptiveValue('margin-bottom', 40, 30);
+    }
   }
 
   &__logo {
@@ -31,6 +43,9 @@
   &__contacts {
   }
   &__menu {
+    @media (max-width: $tablet) {
+      @include adaptiveValue('margin-bottom', 40, 30);
+    }
   }
 
   &__subscribe {
@@ -70,17 +85,44 @@
     @media (min-width: $mobile) {
       flex: 1 1 33.3333%;
     }
+    @media (max-width: $mobile) {
+      @include adaptiveValue('margin-bottom', 30, 15);
+    }
   }
 
   &__title {
     cursor: default;
-    margin: 0px 0px calc(16px / 24px * 1em) 0px;
     text-align: left;
+    @media (min-width: $mobile) {
+      margin: 0px 0px calc(16px / 24px * 1em) 0px;
+    }
+    ._spoller-init &{
+      display: flex;
+      width: 100%;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-between;
+      @extend ._icon-arrow-down;
+      &::before {
+        @extend %ic;
+        font-size: rem(10);
+        transition: transform 0.3s ease 0s;
+        margin-left: rem(8);
+      }
+    }
+    ._spoller-active &{
+      &::before {
+       transform: rotate(-180deg);
+      }
+    }
   }
 
   &__list {
     color: $darkGrayColor;
     font-size: rem(16);
+     @media (max-width: $mobile) {
+      padding-top: rem(15);;
+    }
   }
 
   &__link {
@@ -109,6 +151,14 @@
     position: relative;
     display: flex;
     gap: 4px;
+    .form__error {
+      position: absolute;
+      top: 100%;
+      left: rem(12);
+      color: red;
+      font-size: rem(12);
+      margin: 3px 0;
+    }
   }
 
   &__button {
@@ -122,9 +172,9 @@
     display: flex;
     color: #f4f5f7;
     transition: background-color 0.3s ease 0s;
-    @media (any-hover: hover){
-      &:hover{
-        background-color: #b57b57
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #b57b57;
       }
     }
   }
