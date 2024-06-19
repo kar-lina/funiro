@@ -22,6 +22,7 @@ $mainColor: #3a3a3a;
 $grayColor: #898989;
 $orangeColor: #E89F71;
 $darkGrayColor: #616161;
+$bgColor: #F9F1E7;
 
 
 // Палитра цветов
@@ -66,7 +67,6 @@ $responsiveType: 1;
 body {
 	// scrollbar-gutter: stable;
 	// Скролл заблоковано
-	background-color: #F9F1E7;
 	.lock & {
 		overflow: hidden;
 		touch-action: none;
@@ -150,9 +150,6 @@ body {
 // Підключення стилів загальних елементів проекту
 @import "common";
 
-// Підключення стилів окремих блоків
 @import "header";
 @import "footer";
-
-// Підключення стилів окремих сторінок
-@import "home";
+@import "components/main-slider";

@@ -1,0 +1,140 @@
+.page {
+  &__main-slider {
+  }
+}
+.main-slider {
+  background-color: #fcf8f3;
+  &__container {
+    position: relative;
+    @media (min-width: $tablet) {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100vw;
+        right: rem(376);
+        background-color: $bgColor;
+      }
+    }
+  }
+
+  &__body {
+    padding: rem(140) 0px 0px 0px;
+    position: relative;
+    z-index: 2;
+    @media (max-width: $tablet) {
+      padding: rem(80) 0px 0px 0px;
+    }
+    @media (max-width: $mobile) {
+      padding: rem(50) 0px 0px 0px;
+    }
+    @media (min-width: $tablet) {
+      display: flex;
+    }
+  }
+
+  &__content {
+    flex: 0 0 calc(490 / 1240 * 100%);
+  }
+
+  &__slider {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+.content-main {
+  position: relative;
+  z-index: 5;
+
+  padding-right: rem(15);
+  padding-left: rem(15);
+  @include adaptiveValue('padding-top', 60, 15);
+  @include adaptiveValue('padding-bottom', 60, 15);
+
+  backdrop-filter: blur(31px);
+  background: rgba(255, 255, 255, 0.72);
+
+  @media (min-width: $tablet) {
+    @include adaptiveValue('padding', 60, 1);
+  }
+  &__title {
+    color: #3a3a3a;
+    font-weight: 700;
+    @include adaptiveValue('font-size', 56, 24);
+    line-height: 120%;
+    &:not(:last-child) {
+      margin-bottom: calc(16px/56px*1em);
+    }
+  }
+
+  &__text {
+    color: #898989;
+    font-weight: 500;
+    @include adaptiveValue('font-size', 20, 16);
+    line-height: 150%;
+    &:not(:last-child) {
+      margin-bottom: calc(48px/20px*1em);
+    }
+  }
+
+  &__button {
+    display: flex;
+    color: #fff;
+    padding: rem(24);
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: rem(20);
+    line-height: 150%;
+    background-color: $orangeColor;
+    transition: color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #dd976b;
+      }
+    }
+  }
+}
+.slider-main {
+  &__controlls {
+  }
+
+  &__body {
+  }
+
+  &__wrapper {
+  }
+
+  &__slide {
+  }
+
+  &__image {
+  }
+
+  &__content {
+  }
+
+  &__title {
+  }
+
+  &__text {
+  }
+
+  &__price {
+  }
+}
+.controlls-slider-main {
+  &__dotts {
+  }
+
+  &__arrows {
+  }
+}
+
+.swiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
