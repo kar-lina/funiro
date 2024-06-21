@@ -64,7 +64,7 @@
     @include adaptiveValue('font-size', 56, 24);
     line-height: 120%;
     &:not(:last-child) {
-      margin-bottom: calc(16px/56px*1em);
+      margin-bottom: calc(16px / 56px * 1em);
     }
   }
 
@@ -74,21 +74,18 @@
     @include adaptiveValue('font-size', 20, 16);
     line-height: 150%;
     &:not(:last-child) {
-      margin-bottom: calc(48px/20px*1em);
+      margin-bottom: calc(48px / 20px * 1em);
     }
   }
 
   &__button {
-    display: flex;
     color: #fff;
-    padding: rem(24);
-    align-items: center;
-    justify-content: center;
+    @include adaptiveValue('min-height', 75, 45);
+    @include adaptiveValue('font-size', 20, 16);
     font-weight: 600;
-    font-size: rem(20);
     line-height: 150%;
     background-color: $orangeColor;
-    transition: color 0.3s ease 0s;
+    width: 100%;
     @media (any-hover: hover) {
       &:hover {
         background-color: #dd976b;
@@ -125,7 +122,11 @@
   }
 }
 .controlls-slider-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   &__dotts {
+    flex: 1 0 auto;
   }
 
   &__arrows {

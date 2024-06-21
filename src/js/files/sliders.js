@@ -25,8 +25,8 @@ function initSliders() {
         clickable: true,
       },
       navigation: {
-        prevEl: '.slider-main .slider-arrows_prev',
-        nextEl: '.slider-main .slider-arrows_next',
+        prevEl: '.slider-main .slider-arrow_prev',
+        nextEl: '.slider-main .slider-arrow_next',
       },
       /*
 			breakpoints: {
