@@ -35,12 +35,18 @@
   }
 
   &__content {
+    align-self: start;
     flex: 0 0 calc(490 / 1240 * 100%);
+    @include adaptiveValue('margin-bottom', 80, 15);
   }
 
   &__slider {
     flex: 1 1 auto;
     min-width: 0;
+    align-self: end;
+    @media (min-width: $tablet) {
+      padding: 0px 0px 0px rem(32);
+    }
   }
 }
 .content-main {
@@ -94,31 +100,88 @@
   }
 }
 .slider-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  @media (max-width: $tablet) {
+    align-items: stretch;
+  }
   &__controlls {
+    margin: 0px 0px rem(20) 0px;
+    align-self: stretch;
   }
 
   &__body {
+    overflow: visible !important;
+
+    @media (min-width: $tablet) {
+      @include adaptiveValue('width', 934, 290);
+    }
   }
 
   &__wrapper {
   }
 
   &__slide {
+    position: relative;
   }
 
   &__image {
+    // padding: 0px 0px -50% 0px;
+
+    img {
+      position: relative;
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+    }
   }
 
   &__content {
+    min-width: rem(295);
+    max-height: rem(300);
+    overflow: auto;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    @include adaptiveValue('padding', 24, 15);
+    backdrop-filter: blur(31px);
+    background: rgba(255, 255, 255, 0.5);
+
+    @media (min-width: $mobile) {
+      position: absolute;
+      min-width: rem(350);
+      @include adaptiveValue('bottom', 40, 0);
+      @include adaptiveValue('right', 40, 0);
+    }
   }
 
   &__title {
+    @include adaptiveValue('font-size', 28, 22);
+    font-weight: 600;
+    line-height: 120%;
+    margin: 0px 0px calc(4px / 28px * 1em) 0px;
   }
 
   &__text {
+    line-height: 150%;
+    margin: 0px 0px calc(8px / 16px * 1em) 0px;
+    color: $grayColor;
   }
 
   &__price {
+    display: flex;
+    flex-direction: row-reverse;
+    line-height: 150%;
+    align-items: center;
+    font-weight: 600;
+    justify-content: space-between;
+    @include adaptiveValue('font-size', 20, 16);
+    &::before {
+      margin-left: rem(10);
+      font-size: rem(12);
+    }
   }
 }
 .controlls-slider-main {
