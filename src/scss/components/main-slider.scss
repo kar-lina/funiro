@@ -38,6 +38,9 @@
     align-self: start;
     flex: 0 0 calc(490 / 1240 * 100%);
     @include adaptiveValue('margin-bottom', 80, 15);
+    @media (max-width: $mobile) {
+      margin: 0px -15px;
+    }
   }
 
   &__slider {
@@ -52,7 +55,6 @@
 .content-main {
   position: relative;
   z-index: 5;
-
   padding-right: rem(15);
   padding-left: rem(15);
   @include adaptiveValue('padding-top', 60, 15);
@@ -105,10 +107,14 @@
   align-items: flex-end;
   @media (max-width: $tablet) {
     align-items: stretch;
+    flex-direction: column-reverse;
   }
   &__controlls {
     margin: 0px 0px rem(20) 0px;
     align-self: stretch;
+    @media (max-width: $tablet) {
+      margin: rem(10) 0px rem(20) 0px;
+    }
   }
 
   &__body {
@@ -116,6 +122,9 @@
 
     @media (min-width: $tablet) {
       @include adaptiveValue('width', 934, 290);
+    }
+    @media (max-width: $mobile) {
+      margin: 0px -15px;
     }
   }
 
@@ -127,12 +136,10 @@
   }
 
   &__image {
-    // padding: 0px 0px -50% 0px;
-
     img {
-      position: relative;
-      object-fit: cover;
       width: 100%;
+    }
+    @media (max-width: $mobile) {
       height: auto;
     }
   }
@@ -141,7 +148,6 @@
     min-width: rem(295);
     max-height: rem(300);
     overflow: auto;
-    position: absolute;
     display: flex;
     flex-direction: column;
     color: inherit;
@@ -190,9 +196,15 @@
   justify-content: space-between;
   &__dotts {
     flex: 1 0 auto;
+    @media (max-width:$mobile){
+       justify-content: center; 
+    }
   }
 
   &__arrows {
+     @media (max-width:$mobile){
+       display: none;
+    }
   }
 }
 

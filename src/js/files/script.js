@@ -1,11 +1,11 @@
 // Підключення функціоналу "Чертоги Фрілансера"
 import { isMobile, removeClasses } from './functions.js';
+import { headerScroll } from './header-scroll.js';
 // Підключення списку активних модулів
 import { flsModules } from './modules.js';
 
 window.onload = function () {
   document.addEventListener('click', documentActions);
-
   // Делегирование событиий клика
   function documentActions(e) {
     const targetElement = e.target;
@@ -24,4 +24,7 @@ window.onload = function () {
       document.querySelector('.search-form._active').classList.remove('_active');
     }
   }
+
+  // Header
+  headerScroll()
 };
