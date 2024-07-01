@@ -17,4 +17,14 @@
   &--fw {
     width: 100%;
   }
+  &_white {
+    background-color: #fff;
+    color: $orangeColor;
+    @media (any-hover: hover){
+      &:hover{
+        background: $orangeColor;
+        color: #fff;
+      }
+    }
+  }
 }
