@@ -1,49 +1,187 @@
 .products {
+  @include adaptiveValue('paddint-top', 44, 30);
+  &__container {
+  }
 
-		&__container {}
+  &__title {
+    margin: 0px 0px calc(32px / 40px * 1em) 0px;
+  }
 
-		&__title {}
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+    gap: rem(32);
+  }
 
-		&__items {}
+  &__item {
+  }
+	&__footer {
+		padding: rem(32) 0px rem(32) 0px;
+		text-align: center;
+	}
 
-		&__item {}
+	&__more {
+		border: 1px solid $orangeColor;
+		min-width: rem(245)
+	}
 }
 .item-product {
+  background-color: #f4f5f7;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
-		&_price {}
-
-		&_price {}
-
-		&__labels {}
-
-		&__label {
-
-			&_sale {}
-
-			&_new {}
+	@media (any-hover: hover){
+		&:hover{
+			.item-product__actions {
+				opacity: 1;
+        visibility: visible;
+			}
 		}
+	}
 
-		&__image {}
+  &__labels {
+    position: absolute;
+    top: rem(36);
+    right: rem(28);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    @include adaptiveValue('top', 24, 10);
+    @include adaptiveValue('right', 24, 10);
+  }
 
-		&__body {}
+  &__label {
+    width: rem(48);
+    flex: 0 0 rem(48);
+    border-radius: 50%;
+    color: #fff;
+    font-size: rem(16);
+    line-height: 150%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    &:not(:last-child) {
+      margin: 0px 0px rem(10) 0px;
+    }
+    &_sale {
+      background-color: #e97171;
+    }
 
-		&__content {}
+    &_new {
+      background-color: #2ec1ac;
+    }
+  }
 
-		&__title {}
+  &__image {
+  }
 
-		&__text {}
+  &__body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+  }
 
-		&__prices {}
+  &__content {
+    flex: 1 1 auto;
+  }
 
-		&__actions {}
+  &__title {
+    color: #3a3a3a;
+    font-weight: 600;
+    @include adaptiveValue('font-size', 24, 20);
+    line-height: 120%;
+    &:not(:last-child) {
+      margin-bottom: em(8, 24);
+    }
+  }
+
+  &__text {
+    color: #898989;
+    @include adaptiveValue('font-size', 16, 12);
+    line-height: 150%;
+    &:not(:last-child) {
+      margin-bottom: em(8, 16);
+    }
+  }
+
+  &__prices {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    line-height: 150%;
+    gap: rem(16);
+  }
+  &_price {
+    font-weight: 600;
+    @include adaptiveValue('font-size', 20, 16);
+    &_old {
+      font-weight: 400;
+      @include adaptiveValue('font-size', 16, 14);
+      text-decoration: line-through;
+      color: #b0b0b0;
+    }
+  }
+
+  &__actions {
+    @media (any-hover: none) {
+      // для всех устройств, которых нет возможности наведения
+      padding: 15px 0px 0px 0px;
+    }
+    @media (any-hover: hover) {
+			opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgb(58, 58, 58, 0.74);
+			transition: all 0.3s ease 0s;
+			z-index: 3;
+    }
+  }
+
+	
 }
 
 .actions-product {
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 
-		&__body {}
+  &__button {
+    flex: 1 1 100%;
+    &:not(:last-child) {
+      margin-bottom: rem(24);
+    }
+  }
 
-		&__button {}
+  &__link {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    font-weight: 600;
+    transition: color 0.3s ease 0s;
 
-		&__link {}
+    &::before {
+      font-size: rem(16);
+      margin: 0px 10px 0px 0px;
+    }
+    @media (any-hover: hover) {
+      color: #fff;
+      &:hover {
+        color: $orangeColor;
+      }
+    }
+  }
 }
-
