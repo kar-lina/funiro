@@ -1,7 +1,7 @@
 export function addToCart(productButton, productId) {
   if (!productButton.classList.contains('_hold')) {
     productButton.classList.add('_hold');
-    productButton.classList.add('fly');
+    productButton.classList.add('_fly');
 
     const cart = document.querySelector('.cart-header__icon');
     const product = document.querySelector(`[data-pi="${productId}"`);
@@ -30,20 +30,60 @@ export function addToCart(productButton, productId) {
       opacity: 0;
       width: 0px;`;
 
-    productImageFly.addEventListener('transitionend', function () {
+    productImageFly.addEventListener('transitionend', () => {
       if (productButton.classList.contains('_fly')) {
         productButton.classList.remove('_fly');
         updateCart(productButton, productId);
-        productButton.remove();
+        // productButton.remove();
       }
     });
   }
 }
-function  updateCart(productButton, productId, productAdd = true) {
-  const cart = document.querySelector('.cart-header')
-  const cartIcon = document.querySelector('.cart-header__icon')
-  const cartList = document.querySelector('.cart-header__icon')
+export function updateCart(productButton, productId, productAdd = true) {
+  const cart = document.querySelector('.cart-header');
+  const cartIcon = cart.querySelector('.cart-header__icon');
+  const cartQuantity = cartIcon.querySelector('span');
+  const cartList = document.querySelector('.cart-list');
   const cartProduct = document.querySelector(`[data-cart-pi="${productId}"`);
-  const cartQuantity = cartIcon.querySelector('.cart-list')
 
+  if (productAdd) {
+    if (cartQuantity) {
+      cartQuantity.innerHTML = ++cartQuantity.innerHTML;
+    } else {
+      cartIcon.insertAdjacentHTML('beforeend', '<span>1</span>');
+    }
+    if (!cartProduct) {
+      const product = document.querySelector(`[data-pi="${productId}"`);
+      const cartProdutImage = product.querySelector('.item-product__image').innerHTML;
+      const cartProdutTitle = product.querySelector('.item-product__title').innerHTML;
+      const cartProductContent = `
+        <a href="" class="cart-list__img ibg">${cartProdutImage}</a>
+        <div class="cart-list__body">
+           <a href="" class="cart-list__title">${cartProdutTitle}</a>
+           <div class="cart-list__quantity">Quatity: <span>1</span></div>
+            <a href="" class="cart-list__delete">Delete</a>
+        </div>
+        `;
+      cartList.insertAdjacentHTML('beforeend', `<li class="cart-list__item" data-cart-pi="${productId}"> ${cartProductContent}</li>`)
+    } else {
+      const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span')
+      cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
+    }
+    //  После всех действий
+    productButton.classList.remove('_hold');
+  } else {
+    const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span')
+    cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
+    if(!parseInt(cartProductQuantity.innerHTML)) {
+      cartProduct.remove()
+    }
+    const cartQuantityValue = --cartQuantity.innerHTML
+
+    if(cartQuantityValue) {
+      cartQuantity.innerHTML = cartQuantityValue;
+    } else {
+      cartQuantity.remove()
+      cart.classList.remove('_active')
+    }
+  }
 }

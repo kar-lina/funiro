@@ -1,5 +1,5 @@
 // Підключення функціоналу "Чертоги Фрілансера"
-import { addToCart } from './cart.js';
+import { addToCart, updateCart } from './cart.js';
 import { isMobile, removeClasses } from './functions.js';
 import { headerScroll } from './header-scroll.js';
 // Підключення списку активних модулів
@@ -36,6 +36,24 @@ window.onload = function () {
       const productId = targetElement.closest('.item-product').dataset.pi;
       e.preventDefault();
       addToCart(targetElement, productId);
+    }
+
+    // Open Cart
+    if (targetElement.classList.contains('cart-header__icon') || targetElement?.closest('.cart-header__icon')) {
+      e.preventDefault();
+      if(document.querySelector('.cart-list').children.length > 0) {
+      document.querySelector('.cart-header').classList.toggle('_active');
+      }
+    } else if (!targetElement?.closest('.cart-header') && !targetElement?.classList.contains('actions-product__button')) {
+      document.querySelector('.cart-header').classList.remove('_active');
+      e.preventDefault();
+    }
+
+    // Delete item from cart
+    if (targetElement.classList.contains('cart-list__delete')) {
+      e.preventDefault();
+      const productId = targetElement.closest('.cart-list__item').dataset.cartPi
+      updateCart(targetElement, productId, false)
     }
   }
 
