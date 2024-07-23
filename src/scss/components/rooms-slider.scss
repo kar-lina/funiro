@@ -1,0 +1,54 @@
+.page {
+		&__rooms {}
+}
+.rooms {
+
+		&__container {}
+
+		&__body {}
+
+		&__title {}
+
+		&__description {}
+
+		&__button {}
+
+		&__slider {}
+}
+
+.slider-rooms {
+
+		&__body {}
+
+		&__slide {}
+
+		&__img {}
+
+		&__content {}
+
+		&__label {}
+
+		&__title {}
+
+		&__arrows {}
+
+		&__dotts {}
+}
+.label-slider {
+
+		&__number {}
+
+		&__line {}
+
+		&__text {}
+}
+.slider-arrows {
+}
+.slider-arrow {
+
+		&_white {}
+
+		&_prev {}
+
+		&_next {}
+}

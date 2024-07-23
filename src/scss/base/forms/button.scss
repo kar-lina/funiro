@@ -9,6 +9,7 @@
   text-align: center;
   transition: color 0.3s ease 0s;
 	min-height: rem(48);
+  cursor: pointer;
 
   @media (any-hover: hover) {
     &:hover {
