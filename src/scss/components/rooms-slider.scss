@@ -1,54 +1,207 @@
 .page {
-		&__rooms {}
+  &__rooms {
+  }
 }
 .rooms {
+  background-color: #fcf8f3;
+  @include adaptiveValue('padding-top', 44, 30);
+  @include adaptiveValue('padding-bottom', 44, 30);
+  &__container {
+    @media (min-width: $tablet) {
+      display: flex;
+    }
+  }
 
-		&__container {}
+  &__body {
+    flex: 0 0 calc(465 / 1240 * 100%);
+    position: relative;
+    z-index: 5;
+    align-self: center;
+    @media (min-width: $tablet) {
+      @include adaptiveValue('padding-right', 80, 30);
+    }
+    @media (max-width: $tablet) {
+      margin-bottom: rem(30);
+    }
+  }
 
-		&__body {}
+  &__title {
+    text-align: left;
+    margin-bottom: em(8, 40);
+  }
 
-		&__title {}
+  &__description {
+    @include adaptiveValue('font-size', 16, 14);
+    margin-bottom: em(16, 24);
+    font-weight: 500;
+    line-height: 150%;
+  }
 
-		&__description {}
+  &__button {
+    color: #fff;
+    font-weight: 600;
+    line-height: 150%;
+    background-color: $orangeColor;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #8d6146;
+      }
+    }
+  }
 
-		&__button {}
-
-		&__slider {}
+  &__slider {
+    flex: 1 1 auto;
+    min-width: 0;
+    align-self: flex-start;
+     @media (max-width: $mobileSmall) {
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+  }
 }
 
 .slider-rooms {
+  position: relative;
+  &__body {
+    overflow: visible;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100vw;
+      background-color: #fcf8f3;
+      z-index: 2;
+      transform: translate(-100%, 0px);
+    }
+  }
 
-		&__body {}
+  &__slide {
+    width: rem(372);
+    position: relative;
+    overflow: hidden;
+    @include adaptiveValue('min-heght', 585, 400);
+    &.swiper-slide-active {
+      .slider-rooms__img {
+        height: 100%;
+      }
+    }
 
-		&__slide {}
+    @media (max-width: $mobileSmall) {
+      width: 100%;
+    }
+  }
 
-		&__img {}
+  &__img {
+    height: 100%;
+    transition: height 0.8s ease 0s;
+    @media (min-width: $mobile) {
+      height: 83%;
+    }
+  }
 
-		&__content {}
+  &__content {
+    position: absolute;
+    color: inherit;
+    min-width: rem(240);
+    @include adaptiveValue('left', 24, 15);
+    @include adaptiveValue('bottom', 24, 15);
+    @include adaptiveValue('padding', 32, 15);
+    backdrop-filter: blur(3px);
+    background: rgba(255, 255, 255, 0.72);
 
-		&__label {}
+    &::before {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: translate(100%, 0);
+      height: rem(48);
+      width: rem(48);
+      background-color: $orangeColor;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-		&__title {}
+    opacity: 0;
+    transform: translate(0px, 100%);
+    transition: all 0.8s ease 0s;
+    .swiper-slide-active & {
+      opacity: 1;
+      transform: translate(0px, 0px);
+    }
+  }
 
-		&__arrows {}
+  &__label {
+  }
 
-		&__dotts {}
+  &__title {
+    @include adaptiveValue('font-size', 28, 24);
+    font-weight: 600;
+    line-height: 120%;
+  }
+
+  &__arrows {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    width: calc(100% - 48px);
+    left: 24px;
+    transform: translateY(-50%);
+    justify-content: space-between;
+    z-index: 5;
+    @media (min-width: $pc) {
+      width: calc(100% + 48px);
+      left: -24px;
+    }
+  }
+
+  &__dotts {
+    @media (min-width: $mobile) {
+      position: absolute;
+      width: 100%;
+      bottom: 30px;
+      left: 396px;
+    }
+    @media (max-width: $mobile) {
+      justify-content: center;
+      margin-top: rem(15);
+    }
+  }
 }
 .label-slider {
+  display: grid;
+  grid-template-columns: auto 27px auto;
+  font-size: rem(16);
+  align-items: center;
+  line-height: math.div(24px, 16px);
+  margin-bottom: rem(8);
+  color: $darkGrayColor;
+  column-gap: 8px;
+  justify-content: start;
 
-		&__number {}
+  &__number {
+  }
 
-		&__line {}
+  &__line {
+    height: 1px;
+    background-color: $darkGrayColor;
+  }
 
-		&__text {}
+  &__text {
+  }
 }
 .slider-arrows {
 }
 .slider-arrow {
+  &_white {
+  }
 
-		&_white {}
+  &_prev {
+  }
 
-		&_prev {}
-
-		&_next {}
+  &_next {
+  }
 }

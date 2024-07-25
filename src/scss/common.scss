@@ -22,6 +22,7 @@
   column-gap: rem(8);
 }
 .slider-arrow {
+  pointer-events: auto;
   border-radius: 50%;
   height: rem(48);
   display: flex;
