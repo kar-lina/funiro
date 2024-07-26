@@ -1,0 +1,107 @@
+.gallery {
+  @include adaptiveValue('padding-bottom', 85, 40);
+  &__wrapper {
+  }
+
+  &__label {
+    font-weight: 600;
+    @include adaptiveValue('font-size', 20, 16);
+    color: $darkGrayColor;
+    margin-bottom: em(8, 20);
+    text-align: center;
+    line-height: 150%;
+  }
+
+  &__title {
+    margin-bottom: em(32, 40);
+  }
+
+  &__body {
+    position: relative;
+    // для всех устройств с тачскрином включаем горизонтальный плавный скролл
+    @media (any-hover: none) {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-flow: column; // добавление нового контента в виде колонок
+    align-items: center;
+    gap: rem(16);
+    @media (any-hover: hover) {
+      justify-content: center;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -8px;
+    &:first-child {
+      justify-content: flex-end;
+    }
+  }
+
+  &__row {
+    display: inline-grid;
+    padding: 0px 8px;
+    // display: grid;
+    grid-template-columns: auto;
+    grid-auto-flow: column; // добавление нового контента в виде колонок
+    gap: rem(16);
+    &:not(:last-child) {
+      margin: 0px 0px rem(16) 0px;
+    }
+  }
+}
+
+.row-gallery {
+  &_left-top {
+    //вправо
+    justify-content: end;
+    //вниз
+    align-items: end;
+  }
+
+  &_left-bottom {
+    //вправо
+    justify-content: end;
+    //вверх
+    align-items: start;
+  }
+
+  &_center {
+    display: block;
+  }
+
+  &_right-top {
+    //влево
+    justify-content: start;
+    //вниз
+    align-items: end;
+  }
+
+  &_right-bottom {
+    //влкво
+    justify-content: start;
+    //вверх
+    align-items: start;
+  }
+
+  &__item {
+    @media (any-hover: hover) {
+      img {
+        transition: all 0.8s ease 0s;
+        filter: grayscale(1);
+      }
+      &:hover {
+        img {
+          filter: none;
+        }
+      }
+    }
+  }
+}

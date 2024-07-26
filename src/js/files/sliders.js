@@ -84,8 +84,8 @@ function initSliders() {
       loop: true,
       breakpoints: {
         320: {
-          slidesPerView: 1,
-          spaceBetween: 0,
+          slidesPerView: 1.1,
+          spaceBetween: 15,
           // autoHeight: true,
         },
         640: {

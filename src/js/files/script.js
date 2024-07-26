@@ -1,6 +1,7 @@
 // Підключення функціоналу "Чертоги Фрілансера"
 import { addToCart, updateCart } from './cart.js';
 import { isMobile, removeClasses } from './functions.js';
+import { galleryScroll } from './gallery-scroll.js';
 import { headerScroll } from './header-scroll.js';
 // Підключення списку активних модулів
 import { flsModules } from './modules.js';
@@ -59,4 +60,7 @@ window.onload = function () {
 
   // Header
   headerScroll();
+
+  //Gallery Scroll
+  galleryScroll()
 };
