@@ -27,7 +27,7 @@ export const imagesOptimize = () => {
 	return app.gulp.src(app.path.src.images, { encoding: false })
 		.pipe(app.plugins.plumber(
 			app.plugins.notify.onError({
-				title: "IMAGES",
+				title: "IMAGES img",
 				message: "Error: <%= error.message %>"
 			}))
 		)
@@ -49,7 +49,7 @@ export const copySvg = () => {
 	return app.gulp.src(app.path.src.svg)
 		.pipe(app.plugins.plumber(
 			app.plugins.notify.onError({
-				title: "IMAGES",
+				title: "IMAGES svg",
 				message: "Error: <%= error.message %>"
 			}))
 		)
