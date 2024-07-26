@@ -1,0 +1,92 @@
+.tips {
+  @include adaptiveValue('padding-top', 44, 30);
+  @include adaptiveValue('padding-bottom', 44, 30);
+  &__container {
+  }
+
+  &__title {
+  }
+
+  &__slider {
+  }
+}
+.slider-tips {
+  position: relative;
+  &__body {
+    @include adaptiveValue("margin-left", -32, -15);
+    @include adaptiveValue("margin-right", -32, -15);
+    @include adaptiveValue("padding", 20, 0);
+  }
+
+  &__slide {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
+      }
+    }
+  }
+
+  &__image {
+    // padding: 0px 0px calc(251/391*100%) 0px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: rem(15);
+    flex: 1 1 auto;
+    align-items: flex-start;
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    color: inherit;
+    line-height: 120%;
+    font-weight: 600;
+    @include adaptiveValue("font-size", 24, 18);
+    transition: color 0.3s ease 0s;
+    &:not(:last-child) {
+      margin-bottom: em(8, 24);
+    }
+    @media (any-hover: hover){
+      &:hover{
+        color: $orangeColor;
+      }
+    }
+  }
+
+  &__text {
+    color: $grayColor;
+    font-size: rem(14);
+    line-height: 150%;
+    &:not(:last-child) {
+      padding-bottom: rem(15);
+    }
+  }
+
+  &__arrows {
+     pointer-events: none;
+    position: absolute;
+    top: 50%;
+    width: calc(100% - 48px);
+    left: 24px;
+    transform: translateY(-50%);
+    justify-content: space-between;
+    z-index: 5;
+    @media (min-width: $pc) {
+      width: calc(100% + 48px);
+      left: -24px;
+    }
+  }
+
+  &__dotts {
+    justify-content: center;
+  }
+}
