@@ -84,6 +84,9 @@
       width: calc(100% + 48px);
       left: -24px;
     }
+    @media (max-width:$mobile){
+        display: none;
+    }
   }
 
   &__dotts {
